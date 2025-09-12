@@ -1,0 +1,26 @@
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"       # Minecraft
+      - "8100:8100"         # BlueMap
+    environment:
+      EULA: "TRUE"
+      TYPE: PAPER
+      MEMORY: "4096M"
+      MAX_PLAYERS: "6"
+      USE_AIKAR_FLAGS: "true"
+      TZ: "Europe/Brussels"
+      DIFFICULTY: "3"
+      VIEW_DISTANCE: "24"
+      OPS: |-
+        ggMass
+      MODRINTH_PROJECTS: |-
+        chunky
+        bluemap
+      VANILLATWEAKS_SHARECODE: "r03bbL"
+      DEBUG: "true"
+    volumes:
+      - "./data:/data"
