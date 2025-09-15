@@ -4,23 +4,28 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "25565:25565"       # Minecraft
-      - "8100:8100"         # BlueMap
+      # Bluemap
+      - 8100:8100/tcp
+      # Minecraft Java
+      - 25565:25565/tcp
     environment:
-      EULA: "TRUE"
       TYPE: PAPER
-      MEMORY: "4096M"
+      EULA: "TRUE"
+      MEMORY: "3584M"
       MAX_PLAYERS: "6"
       USE_AIKAR_FLAGS: "true"
       TZ: "Europe/Brussels"
       DIFFICULTY: "3"
-      VIEW_DISTANCE: "24"
-      OPS: |-
+      VIEW_DISTANCE: "18"
+      SIMULATION_DISTANCE: "8"
+      WHITELIST: |-
         ggMass
+        owTHROWER
+        FayRtricK
+      VANILLATWEAKS_SHARECODE: "Q12Xlp"
       MODRINTH_PROJECTS: |-
         chunky
         bluemap
-      VANILLATWEAKS_SHARECODE: "r03bbL"
-      DEBUG: "true"
+        drivebackupv2
     volumes:
       - "./data:/data"

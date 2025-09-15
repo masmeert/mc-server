@@ -1,0 +1,46 @@
+delay: 60
+backup-thread-priority: 1
+keep-count: 20
+local-keep-count: 5
+zip-compression: 1
+backups-require-players: true
+disable-saving-during-backups: true
+
+scheduled-backups: true
+backup-schedule-list:
+- days:
+  - everyday
+  time: 02:30
+
+
+backup-list:
+- glob: world*
+  format: Backup-%NAME-%FORMAT.zip
+  create: true
+- path: plugins
+  format: Backup-plugins-%FORMAT.zip
+  create: true
+
+googledrive:
+  enabled: false
+onedrive:
+  enabled: false
+dropbox:
+  enabled: false
+webdav:
+  enabled: false
+s3:
+  enabled: false
+ftp:
+  enabled: false
+
+messages:
+  send-in-chat: true
+
+advanced:
+  metrics: true
+  update-check: true
+  suppress-errors: false
+  date-language: en
+  ftp-file-separator: /
+version: 2
