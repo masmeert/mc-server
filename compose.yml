@@ -1,31 +1,25 @@
 services:
   mc:
-    image: itzg/minecraft-server:latest
+    image: 'itzg/minecraft-server:stable'
+    container_name: mc-server
     tty: true
     stdin_open: true
     ports:
-      # Bluemap
-      - 8100:8100/tcp
-      # Minecraft Java
-      - 25565:25565/tcp
+      - '8100:8100/tcp'
+      - '25565:25565/tcp'
     environment:
       TYPE: PAPER
-      EULA: "TRUE"
-      MEMORY: "3584M"
-      MAX_PLAYERS: "6"
-      USE_AIKAR_FLAGS: "true"
-      TZ: "Europe/Brussels"
-      DIFFICULTY: "3"
-      VIEW_DISTANCE: "18"
-      SIMULATION_DISTANCE: "8"
-      WHITELIST: |-
-        ggMass
-        owTHROWER
-        FayRtricK
-      VANILLATWEAKS_SHARECODE: "Q12Xlp"
-      MODRINTH_PROJECTS: |-
-        chunky
-        bluemap
-        drivebackupv2
+      VERSION: 1.21.8
+      EULA: 'TRUE'
+      MEMORY: 6144M
+      MAX_PLAYERS: '6'
+      USE_AIKAR_FLAGS: 'true'
+      TZ: Europe/Brussels
+      DIFFICULTY: '3'
+      VIEW_DISTANCE: '18'
+      SIMULATION_DISTANCE: '8'
+      ONLINE_MODE: false
+      WHITELIST: "ggMass\nowTHROWER\nFayRtricK\nLisaboubakar"
+      MODRINTH_PROJECTS: "chunky\nbluemap\ndrivebackupv2"
     volumes:
-      - "./data:/data"
+      - './data:/data'
